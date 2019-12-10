@@ -77,7 +77,7 @@ export default {
   },
   methods: {
     addToAPI(e) {
-      let newFormData = {
+      let formData = {
         productName: this.productName,
         productModel: this.productModel,
         prodDescription: this.prodDescription,
@@ -85,8 +85,9 @@ export default {
         promoPrice: this.promoPrice,
         inputs: [{ name: "", value: "" }]
       };
-      console.log(newFormData);
+      console.log(formData);
       e.target.reset();
+      let res = axios.post("http://localhost:3000/data/", formData);
     },
     resetForm(e) {
       e.preventDefault();
@@ -129,6 +130,7 @@ textarea {
   border-left: 2px solid #768bad;
   font-size: 1.2em;
   background-color: #d3dded;
+  border-radius: 4px;
 }
 textarea:focus {
   border: 0;
